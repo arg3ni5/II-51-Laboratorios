@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Práctica HTML5</title>
+    <!-- Inclusión de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Estilos adicionales para asegurar la legibilidad y apariencia -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Un fondo suave para la página */
+        }
+        .form-container, .content-section {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* esquinas redondeadas */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .submit-button {
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #2563eb; /* Un azul más oscuro al pasar el mouse */
+        }
+        /* Estilos para el iframe responsivo */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* Proporción 16:9 */
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Encabezado de la página -->
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center">Plataforma Educativa Central</h1>
+        </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="bg-blue-500 text-white py-3 shadow-sm">
+        <div class="container mx-auto flex justify-center">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="hover:text-blue-200">Inicio</a></li>
+                <li><a href="#formulario" class="hover:text-blue-200">Registro</a></li>
+                <li><a href="#info" class="hover:text-blue-200">Información</a></li>
+                <li><a href="#video" class="hover:text-blue-200">Video</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container mx-auto p-4 md:p-8 space-y-8">
+
+        <!-- Sección del formulario de registro -->
+        <section id="formulario" aria-labelledby="titulo-formulario" class="form-container p-6 md:p-8">
+            <article>
+                <h2 id="titulo-formulario" class="text-2xl font-semibold mb-6 text-blue-700">Formulario de Registro</h2>
+                <p class="mb-4 text-gray-600">Complete los siguientes campos para crear su cuenta.</p>
+
+                <!-- Formulario -->
+                <form action="procesar_registro.php" method="POST" class="space-y-6">
+                    <!-- Campo Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Sofía Rojas Víquez" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Campo Correo Electrónico -->
+                    <div>
+                        <label for="correo" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@dominio.com" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Campo Contraseña -->
+                    <div>
+                        <label for="contrasena" class="block text-sm font-medium text-gray-700 mb-1">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Mínimo 8 caracteres" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Campo Género (Radio Buttons) -->
+                    <fieldset>
+                        <legend class="block text-sm font-medium text-gray-700 mb-2">Género:</legend>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <input type="radio" id="genero_masculino" name="genero" value="masculino" required class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="genero_masculino" class="ml-2 block text-sm text-gray-700">Masculino</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="genero_femenino" name="genero" value="femenino" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="genero_femenino" class="ml-2 block text-sm text-gray-700">Femenino</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="genero_otro" name="genero" value="otro" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="genero_otro" class="ml-2 block text-sm text-gray-700">Otro</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input type="radio" id="genero_pnd" name="genero" value="pnd" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="genero_pnd" class="ml-2 block text-sm text-gray-700">Prefiero no decirlo</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Campo Intereses (Checkboxes) -->
+                    <fieldset>
+                        <legend class="block text-sm font-medium text-gray-700 mb-2">Seleccione sus intereses:</legend>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_tecnologia" name="intereses[]" value="tecnologia" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_tecnologia" class="ml-2 block text-sm text-gray-700">Tecnología</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_ciencia" name="intereses[]" value="ciencia" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_ciencia" class="ml-2 block text-sm text-gray-700">Ciencia</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_arte" name="intereses[]" value="arte" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_arte" class="ml-2 block text-sm text-gray-700">Arte y Cultura</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_deportes" name="intereses[]" value="deportes" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_deportes" class="ml-2 block text-sm text-gray-700">Deportes</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_musica" name="intereses[]" value="musica" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_musica" class="ml-2 block text-sm text-gray-700">Música</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interes_viajes" name="intereses[]" value="viajes" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="interes_viajes" class="ml-2 block text-sm text-gray-700">Viajes</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Botón de Envío -->
+                    <div>
+                        <button type="submit" class="w-full submit-button bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Registrarse
+                        </button>
+                    </div>
+                </form>
+            </article>
+        </section>
+
+        <!-- Sección de información adicional con listas -->
+        <section id="info" aria-labelledby="titulo-info" class="content-section p-6 md:p-8">
+            <article>
+                <h2 id="titulo-info" class="text-2xl font-semibold mb-6 text-blue-700">Información Adicional</h2>
+
+                <!-- Lista Ordenada: Pasos para el registro -->
+                <h3 class="text-xl font-medium mb-3 text-gray-700">Pasos para un Registro Exitoso:</h3>
+                <ol class="list-decimal list-inside space-y-2 mb-6 pl-5 text-gray-600">
+                    <li>Ingrese su nombre completo en el campo designado.</li>
+                    <li>Proporcione una dirección de correo electrónico válida.</li>
+                    <li>Cree una contraseña segura (se recomienda combinar letras, números y símbolos).</li>
+                    <li>Seleccione su género.</li>
+                    <li>Marque las casillas correspondientes a sus intereses principales.</li>
+                    <li>Revise que toda la información sea correcta.</li>
+                    <li>Haga clic en el botón "Registrarse".</li>
+                </ol>
+
+                <!-- Lista No Ordenada: Intereses populares -->
+                <h3 class="text-xl font-medium mb-3 text-gray-700">Intereses Populares en Nuestra Plataforma:</h3>
+                <ul class="list-disc list-inside space-y-2 pl-5 text-gray-600">
+                    <li>Desarrollo Web (HTML, CSS, JavaScript)</li>
+                    <li>Programación en Python</li>
+                    <li>Bases de Datos</li>
+                    <li>Inteligencia Artificial</li>
+                    <li>Diseño Gráfico</li>
+                    <li>Marketing Digital</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Sección del Iframe con video educativo -->
+        <section id="video" aria-labelledby="titulo-video" class="content-section p-6 md:p-8">
+            <article>
+                <h2 id="titulo-video" class="text-2xl font-semibold mb-6 text-blue-700">Video Educativo: ¿Qué es HTML5?</h2>
+                <p class="mb-4 text-gray-600">Aprende más sobre HTML5 con este video introductorio:</p>
+                <!-- Contenedor para el iframe responsivo -->
+                <div class="iframe-container rounded-md overflow-hidden">
+                    <iframe
+                        src="https://www.youtube.com/embed/LXb3EKWsInQ"
+                        title="YouTube video player: ¿Qué es HTML5 y para qué sirve?"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="mt-2 text-sm text-gray-500 text-center">Video cortesía de <a href="https://www.youtube.com/@EDteam" target="_blank" class="text-blue-500 hover:underline">EDteam</a> en YouTube.</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-gray-300 p-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; <span id="currentYear"></span> Universidad Central - Práctica HTML5. Todos los derechos reservados.</p>
+            <p>Desarrollado como ejercicio académico.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para actualizar el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
