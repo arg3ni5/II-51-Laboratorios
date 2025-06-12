@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LAB-03</title>
-  <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
@@ -43,57 +43,58 @@
           </div>
 
 
+          <div class="flex-container">
+            <fieldset>
+              <legend>Genero</legend>
+              <div>
+                <div>
+                  <input type="radio" value="m" name="genero" id="g-m">
+                  <label for="g-m">Masculino</label>
+                </div>
+                <div>
+                  <input type="radio" value="f" name="genero" id="g-f">
+                  <label for="g-f">Femenino</label>
+                </div>
+                <div>
+                  <input type="radio" value="o" name="genero" id="g-o">
+                  <label for="g-o">Otro</label>
+                </div>
+                <div>
+                  <input type="radio" value="n" name="genero" id="g-n">
+                  <label for="g-n">Prefiero no decirlo</label>
+                </div>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <legend>Genero</legend>
-            <div>
+            <fieldset>
+              <legend>Seleccione sus intereses:</legend>
               <div>
-                <input type="radio" value="m" name="genero" id="g-m">
-                <label for="g-m">Masculino</label>
-              </div>
-              <div>
-                <input type="radio" value="f" name="genero" id="g-f">
-                <label for="g-f">Femenino</label>
-              </div>
-              <div>
-                <input type="radio" value="o" name="genero" id="g-o">
-                <label for="g-o">Otro</label>
-              </div>
-              <div>
-                <input type="radio" value="n" name="genero" id="g-n">
-                <label for="g-n">Prefiero no decirlo</label>
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Seleccione sus intereses:</legend>
-            <div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes1" value="programacion">
-                <label for="interes1">Programación</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes2" value="diseño">
-                <label for="interes2">Diseño Gráfico</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes3" value="marketing">
-                <label for="interes3">Marketing Digital</label>
-              </div>
-              <div>
-                <input type="checkbox" name="intereses" id="interes4" value="ciencia">
-                <label for="interes4">Ciencia de Datos</label>
-              </div>
-          </fieldset>
+                <div>
+                  <input type="checkbox" name="intereses" id="interes1" value="programacion">
+                  <label for="interes1">Programación</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="intereses" id="interes2" value="diseño">
+                  <label for="interes2">Diseño Gráfico</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="intereses" id="interes3" value="marketing">
+                  <label for="interes3">Marketing Digital</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="intereses" id="interes4" value="ciencia">
+                  <label for="interes4">Ciencia de Datos</label>
+                </div>
+            </fieldset>
+          </div>
 
           <button class="submit-button" type="submit">Registrar</button>
         </fieldset>
       </form>
     </section>
-    <section>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/LXb3EKWsInQ?si=KRC7kR0cZzGenVSb&amp;start=61"
-        title="Video Incrustado" frameborder="0"
+    <section id="video-section">
+      <iframe src="https://www.youtube.com/embed/LXb3EKWsInQ?si=KRC7kR0cZzGenVSb&amp;start=61" title="Video Incrustado"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
