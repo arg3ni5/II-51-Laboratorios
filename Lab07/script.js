@@ -41,3 +41,12 @@ function alternarTema() {
   }
   document.getElementById("main").classList.toggle("oscuro");
 }
+
+// Contador dinámico
+let contador = 0;
+const contadorElemento = document.getElementById("contador");
+
+const modificarContador = (cambio) => {
+  contador += cambio;
+  contadorElemento.textContent = contador;
+};
