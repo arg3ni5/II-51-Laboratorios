@@ -27,6 +27,13 @@ if (isset($accion) && $accion === 'insertar') {
   exit;
 }
 // Acción actualizar
+if (isset($accion) && $accion === 'actualizar' && isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $sql = "UPDATE alumnos SET nombre=:nombre, correo=:correo WHERE id=:id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([':nombre' => $nombre, ':correo' => $correo, ':id' => $id]);
+  header("Location: index.php");
+}
 // Acción eliminar
 if (isset($accion) && $accion === 'eliminar' && isset($_GET['id'])) {
   $id = $_GET['id'];
