@@ -1,0 +1,96 @@
+1. Contador dinámico con incremento y decremento
+<div style="text-align: center; margin-top: 20px;">
+  <h3 id="contador">0</h3>
+  <button onclick="modificarContador(1)">Incrementar</button>
+  <button onclick="modificarContador(-1)">Disminuir</button>
+</div>
+
+<script>
+  let contador = 0;
+  const contadorElemento = document.getElementById("contador");
+
+  const modificarContador = (cambio) => {
+    contador += cambio;
+    contadorElemento.textContent = contador;
+  };
+</script>
+
+
+2. Validación en tiempo real de un correo electrónico
+<label>Correo electrónico:
+  <input type="email" id="email" oninput="validarCorreo()" />
+</label>
+<p id="estadoCorreo" style="font-weight: bold;"></p>
+
+<script>
+  function validarCorreo() {
+    const correo = document.getElementById("email").value;
+    const estado = document.getElementById("estadoCorreo");
+    const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+    if (regex.test(correo)) {
+      estado.textContent = "Correo válido";
+      estado.style.color = "green";
+    } else {
+      estado.textContent = "Correo inválido";
+      estado.style.color = "red";
+    }
+  }
+</script>
+
+
+3. To-do List dinámica con JavaScript puro
+<input type="text" id="tarea" placeholder="Escribe una tarea" />
+<button onclick="agregarTarea()">Agregar</button>
+<ul id="lista"></ul>
+
+<script>
+  function agregarTarea() {
+    const valor = document.getElementById("tarea").value.trim();
+    if (!valor) return;
+
+    const li = document.createElement("li");
+    li.textContent = valor;
+
+    li.onclick = () => li.remove(); // Eliminar al hacer clic
+    document.getElementById("lista").appendChild(li);
+    document.getElementById("tarea").value = "";
+  }
+</script>
+
+4. Cambio de tema (modo claro/oscuro)
+<style>
+  .oscuro {
+    background-color: #222;
+    color: #f1f1f1;
+  }
+</style>
+
+<button onclick="alternarTema()">Cambiar tema</button>
+
+<div id="contenido" style="padding: 10px;">
+  <p>Este texto cambiará entre modo claro y oscuro.</p>
+</div>
+
+<script>
+  function alternarTema() {
+    document.getElementById("contenido").classList.toggle("oscuro");
+  }
+</script>
+
+5. Temporizador con cuenta regresiva
+<p id="temporizador">10</p>
+<button onclick="iniciarCuenta()">Iniciar</button>
+
+<script>
+  function iniciarCuenta() {
+    let tiempo = 10;
+    const elemento = document.getElementById("temporizador");
+
+    const intervalo = setInterval(() => {
+      tiempo--;
+      elemento.textContent = tiempo;
+      if (tiempo === 0) clearInterval(intervalo);
+    }, 1000);
+  }
+</script>
