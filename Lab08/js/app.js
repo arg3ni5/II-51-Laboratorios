@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost/II-51/Lab08/api/usuarios.php';
+const apiUrl = 'https://backend-b558r78as-arg3ni5s-projects.vercel.app/api';
 
 function listarUsuarios() {
   fetch(apiUrl)

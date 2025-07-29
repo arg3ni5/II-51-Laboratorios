@@ -1,5 +1,5 @@
 <?php
-  header("Access-Control-Allow-Origin: http://127.0.0.1:3000");
+  header("Access-Control-Allow-Origin: https://t6d4rrmj-80.use2.devtunnels.ms");
   header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
   header("Access-Control-Allow-Headers: Content-Type, Authorization");
   header("Access-Control-Allow-Credentials: true");
