@@ -4,6 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
+include_once 'config.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
@@ -25,50 +27,55 @@ function getAuthorizationHeader() {
 
 $token = getAuthorizationHeader();
 
-if ($token !== 'Bearer UC2025-II51') {
-    http_response_code(403);
-    echo json_encode(['error' => 'Forbidden']);
-    exit;
-}
+// if ($token !== 'Bearer UC2025-II51') {
+//     http_response_code(403);
+//     echo json_encode(['error' => 'Forbidden']);
+//     exit;
+// }
 
 // OK
 header('Content-Type: application/json');
 
 
-$apikey = 'apikey';
-$urlBase = 'https://username.supabase.co/rest/v1/usuarios';
-
 $method = $_SERVER['REQUEST_METHOD'];
 function callSupabase($method, $url, $data = null) {
     global $apikey;
 
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    try {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    $headers = [
-        'apikey: ' . $apikey,
-        'Authorization: Bearer ' . $apikey,
-        'Content-Type: application/json',
-        'Accept: application/json'
-    ];
+        $headers = [
+            'apikey: ' . $apikey,
+            'Authorization: Bearer ' . $apikey,
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ];
 
-    if ($method === 'POST') {
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        $headers[] = 'Prefer: return=representation';
-    } elseif ($method === 'PUT' || $method === 'PATCH') {
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        $headers[] = 'Prefer: return=representation';
-    } elseif ($method === 'DELETE') {
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        if ($method === 'POST') {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = 'Prefer: return=representation';
+        } elseif ($method === 'PUT' || $method === 'PATCH') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = 'Prefer: return=representation';
+        } elseif ($method === 'DELETE') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    } catch (Exception $e) {
+        http_response_code(500);
+        return json_encode([
+            'error' => 'Exception',
+            'message' => $e->getMessage()
+        ]);
     }
-
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return $response;
 }
 
 if ($method === 'GET') {
