@@ -1,11 +1,10 @@
 <?php
-  header("Access-Control-Allow-Origin: https://t6d4rrmj-80.use2.devtunnels.ms");
-  header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-  header("Access-Control-Allow-Headers: Content-Type, Authorization");
-  header("Access-Control-Allow-Credentials: true");
+//   header("Access-Control-Allow-Origin: https://t6d4rrmj-80.use2.devtunnels.ms");
+//   header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+//   header("Access-Control-Allow-Headers: Content-Type, Authorization");
+//   header("Access-Control-Allow-Credentials: true");
 
-$apikey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4b3N6dWd2Z2lucnN0dHhuaWthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzMjA0ODMsImV4cCI6MjA2ODg5NjQ4M30.BUdy45pw6RbgbHhN45q3zpaWgKCsDJH_s78HKemQ_PA';
-$urlBase = 'https://vxoszugvginrsttxnika.supabase.co/rest/v1/usuarios';
+include_once 'config.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 

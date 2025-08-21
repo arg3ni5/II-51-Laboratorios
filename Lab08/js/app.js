@@ -1,6 +1,6 @@
 const apiUrl = 'https://backend-arg3ni5-arg3ni5s-projects.vercel.app/api';
 const TOKEN_DEV = 'UC2025-II51';
-const 
+
 function listarUsuarios() {
   fetch(apiUrl, {
     headers: {
