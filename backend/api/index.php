@@ -35,8 +35,8 @@ if ($token !== 'Bearer UC2025-II51') {
 header('Content-Type: application/json');
 
 
-$apikey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4b3N6dWd2Z2lucnN0dHhuaWthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzMjA0ODMsImV4cCI6MjA2ODg5NjQ4M30.BUdy45pw6RbgbHhN45q3zpaWgKCsDJH_s78HKemQ_PA';
-$urlBase = 'https://vxoszugvginrsttxnika.supabase.co/rest/v1/usuarios';
+$apikey = 'apikey';
+$urlBase = 'https://username.supabase.co/rest/v1/usuarios';
 
 $method = $_SERVER['REQUEST_METHOD'];
 function callSupabase($method, $url, $data = null) {

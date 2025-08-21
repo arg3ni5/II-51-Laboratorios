@@ -1,7 +1,12 @@
-const apiUrl = 'https://backend-b558r78as-arg3ni5s-projects.vercel.app/api';
-
+const apiUrl = 'https://backend-arg3ni5-arg3ni5s-projects.vercel.app/api';
+const TOKEN_DEV = 'UC2025-II51';
+const 
 function listarUsuarios() {
-  fetch(apiUrl)
+  fetch(apiUrl, {
+    headers: {
+      'Authorization': `Bearer ${TOKEN_DEV}`
+    }
+  })
     .then(res => res.json())
     .then(data => {
       const lista = document.getElementById('lista');

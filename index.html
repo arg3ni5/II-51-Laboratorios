@@ -3,12 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Mis Laboratorios</title>
+  <!-- Animate.css CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 2rem 0 1rem;
+      font-size: 2rem;
+      color: #2a3f54;
+    }
+    .lab-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      width: 90%;
+      max-width: 800px;
+      padding: 1rem;
+    }
+    .lab-card {
+      display: block;
+      background: #fff;
+      text-decoration: none;
+      color: #2a3f54;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform .2s, box-shadow .2s;
+      /* necesario para Animate.css */
+      --animate-duration: 0.6s;
+      animation-duration: var(--animate-duration);
+      animation-fill-mode: both;
+    }
+    .lab-card:hover {
+      /* dispara la animación definida en Animate.css */
+      animation-name: bounce;
+    }
+    .lab-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
 <body>
-  <a href="Lab02/index.html">Lab02</a>
-  <a href="Lab03/index.html">Lab03</a>
-  <a href="Lab04/index.html">Lab04</a>
-  <a href="Lab05/index.html">Lab05</a>
+  <h1>Enlaces a los Laboratorios</h1>
+  <div class="lab-list">
+    <a class="lab-card animate__animated" href="Lab02/index.html">Lab02</a>
+    <a class="lab-card animate__animated" href="Lab03/index.html">Lab03</a>
+    <a class="lab-card animate__animated" href="Lab04/index.html">Lab04</a>
+    <a class="lab-card animate__animated" href="Lab05/index.html">Lab05</a>
+    <a class="lab-card animate__animated" href="Lab06/index.html">Lab06</a>
+    <a class="lab-card animate__animated" href="Lab07/index.html">Lab07</a>
+    <a class="lab-card animate__animated" href="Lab08/index.html">Lab08</a>
+    <a class="lab-card animate__animated" href="Lab09/index.html">Lab09</a>
+    <a class="lab-card animate__animated" href="Lab10/index.html">Lab10</a>
+  </div>
 </body>
 </html>
