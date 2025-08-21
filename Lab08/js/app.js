@@ -1,4 +1,4 @@
-const apiUrl = import.meta.env.API_URL;
+const apiUrl = env.API_URL;
 const TOKEN_DEV = 'UC2025-II51';
 
 function listarUsuarios() {
